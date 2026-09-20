@@ -21,49 +21,42 @@ export default function Home() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden items-center gap-8 md:flex">
-            <a
-              href="#"
-              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
-            >
-              Home
-            </a>
+<nav className="hidden items-center gap-8 md:flex">
+  <a
+    href="#"
+    className="text-sm text-[#5F675F] transition hover:text-[#26352F]"
+  >
+    Home
+  </a>
 
-            <a
-              href="#about"
-              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
-            >
-              About
-            </a>
+  <a
+    href="#about"
+    className="text-sm text-[#5F675F] transition hover:text-[#26352F]"
+  >
+    About
+  </a>
 
-            <a
-              href="#services"
-              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
-            >
-              Services
-            </a>
+  <a
+    href="#approach"
+    className="text-sm text-[#5F675F] transition hover:text-[#26352F]"
+  >
+    Our Approach
+  </a>
 
-            <a
-              href="#approach"
-              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
-            >
-              Approach
-            </a>
+  <a
+    href="#office"
+    className="text-sm text-[#5F675F] transition hover:text-[#26352F]"
+  >
+    Office
+  </a>
 
-            <a
-              href="#office"
-              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
-            >
-              Office
-            </a>
-
-            <a
-              href="/contact"
-              className="rounded-full bg-[#526B5B] px-6 py-3 text-sm text-white transition hover:bg-[#405747]"
-            >
-              Schedule a Consultation
-            </a>
-          </nav>
+  <a
+    href="#contact"
+    className="rounded-full bg-[#26352F] px-5 py-3 text-sm text-white transition hover:bg-[#526B5B]"
+  >
+    Shedule a Consultation
+  </a>
+</nav>
 
           {/* Mobile Menu Button */}
           <button
@@ -81,32 +74,45 @@ export default function Home() {
         {menuOpen && (
           <nav className="border-t border-[#D9DDD5] bg-[#FAF9F5] px-6 py-5 md:hidden">
             <div className="flex flex-col gap-5">
-              <a href="#" className="text-[#52605A]">
-                Home
-              </a>
-
-              <a href="#about" className="text-[#52605A]">
-                About
-              </a>
-
-              <a href="#services" className="text-[#52605A]">
-                Services
-              </a>
-
-              <a href="#approach" className="text-[#52605A]">
-                Approach
-              </a>
-
-              <a href="#office" className="text-[#52605A]">
-                Office
-              </a>
-
               <a
-                href="/contact"
-                className="w-fit rounded-full bg-[#526B5B] px-6 py-3 text-sm text-white"
-              >
-                Schedule a Consultation
-              </a>
+  href="#"
+  onClick={() => setMenuOpen(false)}
+  className="block py-3 text-sm text-[#26352F]"
+>
+  Home
+</a>
+
+<a
+  href="#about"
+  onClick={() => setMenuOpen(false)}
+  className="block py-3 text-sm text-[#26352F]"
+>
+  About
+</a>
+
+<a
+  href="#approach"
+  onClick={() => setMenuOpen(false)}
+  className="block py-3 text-sm text-[#26352F]"
+>
+  Our Approach
+</a>
+
+<a
+  href="#office"
+  onClick={() => setMenuOpen(false)}
+  className="block py-3 text-sm text-[#26352F]"
+>
+  Office
+</a>
+
+<a
+  href="/contact"
+  onClick={() => setMenuOpen(false)}
+  className="block py-3 text-sm text-[#26352F]"
+>
+  Shedule a Consultation
+</a>
             </div>
           </nav>
         )}
@@ -122,7 +128,7 @@ export default function Home() {
             </p>
 
             <h1 className="max-w-xl text-4xl font-normal leading-[1.15] tracking-tight text-[#26352F] sm:text-5xl lg:text-6xl">
-              Find a calmer way forward.
+              Therapy for Anxiety, Trauma & Burnout in Santa Monica
             </h1>
 
             <p className="mt-7 max-w-lg text-base leading-7 text-[#5F675F] sm:text-lg">
@@ -153,42 +159,45 @@ export default function Home() {
       <section id="about" className="bg-[#FAF9F5]">
         <div className="mx-auto grid max-w-7xl items-center lg:grid-cols-2">
           {/* Image */}
-          <div className="order-2 h-[450px] w-full lg:order-1 lg:h-[600px]">
+          <div className="order-2 w-full px-6 py-10 sm:px-10 lg:order-1 lg:px-0 lg:py-0">
             <img
-              src="/maya.png"
-              alt="Dr. Maya Reynolds"
-              className="mx-auto h-auto w-full max-w-md rounded-2xl object-contain"
-            />
+  src="/maya.png"
+  alt="Dr. Maya Reynolds"
+  className="mx-auto block h-auto w-full max-w-md rounded-2xl object-contain"
+/>
           </div>
 
           {/* Content */}
-          <div className="order-1 px-6 py-20 sm:px-10 lg:order-2 lg:px-16 lg:py-28">
+          <div className="order-1 flex flex-col justify-center px-6 py-16 sm:px-10 lg:order-2 lg:px-16 lg:py-24">
             <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
               About Dr. Maya Reynolds
             </p>
 
             <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
-              Therapy that makes space for both insight and healing.
+              A warm, grounded space to understand what you're experiencing.
             </h2>
 
             <div className="mt-7 max-w-xl space-y-5 text-base leading-7 text-[#5F675F]">
               <p>
-                I’m a licensed clinical psychologist based in Santa Monica,
-                California, offering therapy for adults who feel overwhelmed by
-                anxiety, stress, or the lingering effects of past experiences.
-              </p>
+  I’m a licensed clinical psychologist based in Santa Monica, California,
+  offering therapy for adults navigating anxiety, stress, trauma, and burnout.
+  Many of the people I work with are thoughtful, self-aware, and high-achieving,
+  yet feel exhausted, stuck in overthinking, or emotionally on edge.
+</p>
 
-              <p>
-                My approach is warm, collaborative, and grounded. I integrate
-                evidence-based methods such as cognitive-behavioral therapy,
-                EMDR, mindfulness-based practices, and body-oriented techniques.
-              </p>
+<p>
+  My work often focuses on anxiety, panic, trauma, and the effects of
+  professional burnout and high internal pressure. I also support adults who
+  are dealing with the lasting impact of earlier experiences on their
+  relationships, confidence, or sense of safety.
+</p>
 
-              <p>
-                My goal is not just symptom relief, but helping you develop
-                insight, resilience, and a stronger relationship with yourself
-                over time.
-              </p>
+<p>
+  I take a warm, collaborative, and grounded approach to therapy. I integrate
+  evidence-based methods including CBT, EMDR, mindfulness-based practices, and
+  body-oriented techniques, with an emphasis on safety, insight, and sustainable
+  change.
+</p>
             </div>
 
           <a
@@ -216,12 +225,12 @@ export default function Home() {
             </p>
 
             <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
-              Support for the challenges that can feel hardest to carry alone.
+              Therapy for anxiety, trauma, and burnout.
             </h2>
           </div>
 
           {/* Service Cards */}
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {/* Anxiety */}
             <article className="bg-[#FAF9F5]">
               <div className="h-80 overflow-hidden">
@@ -238,8 +247,8 @@ export default function Home() {
                 </h3>
 
                 <p className="mt-4 text-base leading-7 text-[#5F675F]">
-                  Therapy for constant worry, overthinking, tension, panic, and
-                  the feeling of always being on edge.
+                  Support for constant worry, overthinking, panic, tension, and the feeling of
+always being on edge, with practical tools for feeling more regulated day to day.
                 </p>
 
                 <a
@@ -267,8 +276,8 @@ export default function Home() {
     </h3>
 
     <p className="mt-4 text-base leading-7 text-[#5F675F]">
-      Carefully paced support for single-incident trauma and
-      long-standing patterns connected to earlier experiences.
+      Carefully paced trauma therapy for adults working through single-incident
+trauma or long-standing patterns connected to earlier life experiences.
     </p>
 
     <a
@@ -296,8 +305,9 @@ export default function Home() {
                 </h3>
 
                 <p className="mt-4 text-base leading-7 text-[#5F675F]">
-                  Support for professionals, entrepreneurs, and creatives
-                  experiencing high internal pressure, exhaustion, and burnout.
+                  Support for professionals, entrepreneurs, and creatives experiencing burnout,
+perfectionism, high internal pressure, and the exhaustion that comes from
+constantly pushing through stress.
                 </p>
 
                 <a
@@ -315,7 +325,7 @@ export default function Home() {
       {/* Areas of Focus */}
       <section className="bg-[#FAF9F5] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div className="grid gap-10 lg:grid-cols-[32%_68%] lg:gap-16">
             {/* Heading */}
             <div>
               <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
@@ -323,8 +333,7 @@ export default function Home() {
               </p>
 
               <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
-                Understanding what you’re experiencing is part of finding a way
-                forward.
+               Support for anxiety, trauma, burnout, and emotional well-being.
               </h2>
             </div>
 
@@ -384,7 +393,7 @@ export default function Home() {
       <section id="approach" className="bg-[#E8EDE6]">
         <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
           {/* Image */}
-          <div className="h-[500px] lg:h-[650px]">
+          <div className="h-[400px] sm:h-[500px] lg:h-[650px]">
             <img
               src="/how-we-work.jpg"
               alt="Calm and grounding therapy space"
@@ -437,7 +446,7 @@ export default function Home() {
       {/* Specialties */}
 <section className="bg-[#FAF9F5] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
   <div className="mx-auto max-w-7xl">
-    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[30%_70%]">
+    <div className="grid grid-cols-1 gap-10 lg:grid-cols-[32%_68%] lg:gap-16">
 
       {/* Left - Heading */}
       <div>
@@ -552,11 +561,10 @@ export default function Home() {
             </h2>
 
             <p className="mt-7 text-base leading-7 text-[#5F675F] sm:text-lg">
-              My Santa Monica office is designed to feel calm, private, and
-              comfortable. With natural light and an uncluttered environment,
-              the space offers a welcoming setting for slowing down and focusing
-              on what matters.
-            </p>
+  My Santa Monica office is a quiet, private space designed to feel calm and
+  grounding. Natural light and a comfortable, uncluttered environment create
+  room to slow down, reflect, and feel more at ease during sessions.
+</p>
           </div>
 
           {/* Office Images */}
@@ -565,7 +573,7 @@ export default function Home() {
               <img
                 src="/office-1.jpeg"
                 alt="Dr. Maya Reynolds therapy office in Santa Monica"
-                className="h-[420px] w-full object-cover"
+                className="h-[300px] w-full object-cover sm:h-[420px]"
               />
             </div>
 
@@ -573,7 +581,7 @@ export default function Home() {
               <img
                 src="/office-2.jpeg"
                 alt="Therapy office interior in Santa Monica"
-                className="h-[420px] w-full object-cover"
+                className="h-[300px] w-full object-cover sm:h-[420px]"
               />
             </div>
           </div>
@@ -617,97 +625,102 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="bg-[#E8EDE6] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
-        <div className="mx-auto max-w-5xl">
-          <div className="max-w-2xl">
-            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
-              Frequently Asked Questions
-            </p>
+    
+{/* FAQs */}
+<section className="bg-[#E8EDE6] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+  <div className="mx-auto max-w-5xl">
+    <div className="max-w-2xl">
+      <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+        Frequently Asked Questions
+      </p>
 
-            <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
-              A few answers before we begin.
-            </h2>
-          </div>
+      <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+        A few answers before we begin.
+      </h2>
+    </div>
 
-          <div className="mt-12 divide-y divide-[#C9D1C9] border-t border-[#C9D1C9]">
-            <div className="py-7">
-              <h3 className="text-xl font-normal text-[#26352F]">
-                What issues do you help with?
-              </h3>
+    <div className="mt-12 divide-y divide-[#C9D1C9] border-t border-[#C9D1C9]">
+      <div className="py-7">
+        <h3 className="text-xl font-normal text-[#26352F]">
+          What issues do you help with?
+        </h3>
 
-              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
-                I work with adults experiencing anxiety, panic, trauma,
-                burnout, perfectionism, professional stress, and difficulties
-                with emotional regulation.
-              </p>
-            </div>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+          I work with adults experiencing anxiety, panic, trauma, burnout,
+          perfectionism, professional stress, and difficulties with emotional
+          regulation.
+        </p>
+      </div>
 
-            <div className="py-7">
-              <h3 className="text-xl font-normal text-[#26352F]">
-                Do you offer in-person therapy?
-              </h3>
+      <div className="py-7">
+        <h3 className="text-xl font-normal text-[#26352F]">
+          Do you offer in-person therapy?
+        </h3>
 
-              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
-                Yes. In-person therapy is available from my private office in
-                Santa Monica, California.
-              </p>
-            </div>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+          Yes. In-person therapy is available from my private office in
+          Santa Monica, California.
+        </p>
+      </div>
 
-            <div className="py-7">
-              <h3 className="text-xl font-normal text-[#26352F]">
-                Do you offer online therapy?
-              </h3>
+      <div className="py-7">
+        <h3 className="text-xl font-normal text-[#26352F]">
+          Do you offer online therapy?
+        </h3>
 
-              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
-                Yes. Secure telehealth sessions are available for clients
-                located in California.
-              </p>
-            </div>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+          Yes. Secure telehealth sessions are available for clients located
+          in California.
+        </p>
+      </div>
 
-            <div className="py-7">
-              <h3 className="text-xl font-normal text-[#26352F]">
-                What therapy approaches do you use?
-              </h3>
+      <div className="py-7">
+        <h3 className="text-xl font-normal text-[#26352F]">
+          What therapy approaches do you use?
+        </h3>
 
-              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
-                My approach integrates cognitive behavioral therapy, EMDR,
-                mindfulness-based practices, and body-oriented techniques.
-              </p>
-            </div>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+          My approach integrates cognitive behavioral therapy, EMDR,
+          mindfulness-based practices, and body-oriented techniques.
+        </p>
+      </div>
 
-            <div className="py-7">
-              <h3 className="text-xl font-normal text-[#26352F]">
-                Is trauma therapy paced carefully?
-              </h3>
+      <div className="py-7">
+        <h3 className="text-xl font-normal text-[#26352F]">
+          Is trauma therapy paced carefully?
+        </h3>
 
-              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
-                Yes. Trauma work is approached carefully with an emphasis on
-                safety, stabilization, and developing skills for regulation in
-                everyday life.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+          Yes. Trauma work is approached carefully with an emphasis on
+          safety, stabilization, and developing skills for regulation in
+          everyday life.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Appointment CTA */}
       <section id="contact" className="bg-[#F3F0E8]">
         <div className="mx-auto grid max-w-7xl items-center lg:grid-cols-2">
-          {/* Content */}
-          <div className="px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
-            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
-              Take the Next Step
-            </p>
+         {/* Content */}
+<div className="px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+  <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+    Begin Therapy
+  </p>
 
-            <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
-              You don't have to keep carrying everything on your own.
-            </h2>
+  <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+    A calmer, more grounded way forward.
+  </h2>
 
-            <p className="mt-7 max-w-lg text-base leading-7 text-[#5F675F] sm:text-lg">
-              I offer in-person therapy from my Santa Monica office and secure
-              telehealth sessions for clients located in California.
-            </p>
+  <p className="mt-7 max-w-lg text-base leading-7 text-[#5F675F] sm:text-lg">
+    If anxiety, trauma, burnout, or constant pressure has been affecting your
+    daily life, therapy can be a space to slow down and reconnect with yourself.
+    I offer in-person therapy in Santa Monica and secure telehealth sessions
+    for clients located in California.
+  </p>
 
             <a
               href="/contact"
@@ -718,7 +731,8 @@ export default function Home() {
           </div>
 
           {/* Image */}
-          <div className="h-[450px] lg:h-[550px]">
+          {/* Image */}
+<div className="h-[350px] w-full sm:h-[450px] lg:h-[650px]">
             <img
               src="/appointment.jpg"
               alt="Welcoming therapy environment"
