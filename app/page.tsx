@@ -51,10 +51,10 @@ export default function Home() {
   </a>
 
   <a
-    href="/contact"
+    href="#contact"
     className="rounded-full bg-[#26352F] px-5 py-3 text-sm text-white transition hover:bg-[#526B5B]"
   >
-    Shedule a Consultation
+    Schedule a Consultation
   </a>
 </nav>
 
