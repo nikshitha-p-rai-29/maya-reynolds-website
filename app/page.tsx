@@ -1,69 +1,841 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeInfo, setActiveInfo] = useState<string | null>(null);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+    <main>
+      {/* Header */}
+      <header className="border-b border-[#D9DDD5] bg-[#FAF9F5]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+          {/* Logo */}
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#"
+            className="text-xl font-medium tracking-wide text-[#26352F]"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+            Dr. Maya Reynolds, PsyD
+          </a>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden items-center gap-8 md:flex">
+            <a
+              href="#"
+              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
+            >
+              Home
+            </a>
+
+            <a
+              href="#about"
+              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
+            >
+              About
+            </a>
+
+            <a
+              href="#services"
+              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
+            >
+              Services
+            </a>
+
+            <a
+              href="#approach"
+              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
+            >
+              Approach
+            </a>
+
+            <a
+              href="#office"
+              className="text-sm text-[#52605A] transition hover:text-[#26352F]"
+            >
+              Office
+            </a>
+
+            <a
+              href="/contact"
+              className="rounded-full bg-[#526B5B] px-6 py-3 text-sm text-white transition hover:bg-[#405747]"
+            >
+              Schedule a Consultation
+            </a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col gap-1.5 md:hidden"
+            aria-label="Toggle menu"
+          >
+            <span className="h-0.5 w-6 bg-[#26352F]"></span>
+            <span className="h-0.5 w-6 bg-[#26352F]"></span>
+            <span className="h-0.5 w-6 bg-[#26352F]"></span>
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {menuOpen && (
+          <nav className="border-t border-[#D9DDD5] bg-[#FAF9F5] px-6 py-5 md:hidden">
+            <div className="flex flex-col gap-5">
+              <a href="#" className="text-[#52605A]">
+                Home
+              </a>
+
+              <a href="#about" className="text-[#52605A]">
+                About
+              </a>
+
+              <a href="#services" className="text-[#52605A]">
+                Services
+              </a>
+
+              <a href="#approach" className="text-[#52605A]">
+                Approach
+              </a>
+
+              <a href="#office" className="text-[#52605A]">
+                Office
+              </a>
+
+              <a
+                href="/contact"
+                className="w-fit rounded-full bg-[#526B5B] px-6 py-3 text-sm text-white"
+              >
+                Schedule a Consultation
+              </a>
+            </div>
+          </nav>
+        )}
+      </header>
+
+      {/* Hero */}
+      <section className="bg-[#F3F0E8]">
+        <div className="mx-auto grid max-w-7xl items-center lg:grid-cols-2">
+          {/* Hero Content */}
+          <div className="px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+            <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+              Therapy for Adults in Santa Monica & California
+            </p>
+
+            <h1 className="max-w-xl text-4xl font-normal leading-[1.15] tracking-tight text-[#26352F] sm:text-5xl lg:text-6xl">
+              Find a calmer way forward.
+            </h1>
+
+            <p className="mt-7 max-w-lg text-base leading-7 text-[#5F675F] sm:text-lg">
+              Warm, grounded therapy for adults navigating anxiety, trauma,
+              burnout, and the pressure to keep everything together.
+            </p>
+
+            <a
+              href="/contact"
+              className="mt-9 inline-block bg-[#526B5B] px-7 py-4 text-sm font-medium text-white transition hover:bg-[#405747]"
+            >
+              Schedule a Consultation
+            </a>
+          </div>
+
+          {/* Hero Image */}
+          <div className="h-[500px] w-full lg:h-[650px]">
+            <img
+              src="/hero4.jpg"
+              alt="Calm and welcoming therapy environment"
+              className="h-full w-full object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
         </div>
-      </main>
+      </section>
+
+      {/* About */}
+      <section id="about" className="bg-[#FAF9F5]">
+        <div className="mx-auto grid max-w-7xl items-center lg:grid-cols-2">
+          {/* Image */}
+          <div className="order-2 h-[450px] w-full lg:order-1 lg:h-[600px]">
+            <img
+              src="/maya.png"
+              alt="Dr. Maya Reynolds"
+              className="mx-auto h-auto w-full max-w-md rounded-2xl object-contain"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="order-1 px-6 py-20 sm:px-10 lg:order-2 lg:px-16 lg:py-28">
+            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+              About Dr. Maya Reynolds
+            </p>
+
+            <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+              Therapy that makes space for both insight and healing.
+            </h2>
+
+            <div className="mt-7 max-w-xl space-y-5 text-base leading-7 text-[#5F675F]">
+              <p>
+                I’m a licensed clinical psychologist based in Santa Monica,
+                California, offering therapy for adults who feel overwhelmed by
+                anxiety, stress, or the lingering effects of past experiences.
+              </p>
+
+              <p>
+                My approach is warm, collaborative, and grounded. I integrate
+                evidence-based methods such as cognitive-behavioral therapy,
+                EMDR, mindfulness-based practices, and body-oriented techniques.
+              </p>
+
+              <p>
+                My goal is not just symptom relief, but helping you develop
+                insight, resilience, and a stronger relationship with yourself
+                over time.
+              </p>
+            </div>
+
+          <a
+  href="/about"
+  className="mt-6 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F] transition hover:text-[#526B5B]"
+>
+  Learn More
+</a>
+
+            
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section
+        id="services"
+        className="bg-[#F3F0E8] px-6 py-20 sm:px-10 lg:px-14 lg:py-28"
+      >
+        <div className="mx-auto max-w-7xl">
+          {/* Heading */}
+          <div className="max-w-2xl">
+            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+              Services
+            </p>
+
+            <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+              Support for the challenges that can feel hardest to carry alone.
+            </h2>
+          </div>
+
+          {/* Service Cards */}
+          <div className="mt-14 grid gap-8 md:grid-cols-3">
+            {/* Anxiety */}
+            <article className="bg-[#FAF9F5]">
+              <div className="h-80 overflow-hidden">
+                <img
+                  src="/anxiety2.jpg"
+                  alt="Support for anxiety and stress"
+                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                />
+              </div>
+
+              <div className="p-7">
+                <h3 className="text-2xl font-normal text-[#26352F]">
+                  Anxiety & Panic
+                </h3>
+
+                <p className="mt-4 text-base leading-7 text-[#5F675F]">
+                  Therapy for constant worry, overthinking, tension, panic, and
+                  the feeling of always being on edge.
+                </p>
+
+                <a
+                  href="/services/anxiety"
+                  className="mt-6 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F] transition hover:text-[#526B5B]"
+                >
+                  Learn More
+                </a>
+              </div>
+            </article>
+
+            {/* Trauma Therapy */}
+<article className="bg-[#FAF9F5]">
+  <div className="h-80 overflow-hidden">
+    <img
+      src="/trauma2.jpg"
+      alt="Trauma therapy"
+      className="h-full w-full object-cover transition duration-500 hover:scale-105"
+    />
+  </div>
+
+  <div className="p-7">
+    <h3 className="text-2xl font-normal text-[#26352F]">
+      Trauma Therapy
+    </h3>
+
+    <p className="mt-4 text-base leading-7 text-[#5F675F]">
+      Carefully paced support for single-incident trauma and
+      long-standing patterns connected to earlier experiences.
+    </p>
+
+    <a
+      href="/services/trauma"
+      className="mt-6 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F] transition hover:text-[#526B5B]"
+    >
+      Learn More
+    </a>
+  </div>
+</article>
+
+            {/* Burnout & Perfectionism */}
+            <article className="bg-[#FAF9F5]">
+              <div className="h-80 overflow-hidden">
+                <img
+                  src="/burnout2.jpg"
+                  alt="Support for professional burnout and perfectionism"
+                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                />
+              </div>
+
+              <div className="p-7">
+                <h3 className="text-2xl font-normal text-[#26352F]">
+                  Burnout & Perfectionism
+                </h3>
+
+                <p className="mt-4 text-base leading-7 text-[#5F675F]">
+                  Support for professionals, entrepreneurs, and creatives
+                  experiencing high internal pressure, exhaustion, and burnout.
+                </p>
+
+                <a
+                  href="/services/burnout"
+                  className="mt-6 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F] transition hover:text-[#526B5B]"
+                >
+                  Learn More
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Areas of Focus */}
+      <section className="bg-[#FAF9F5] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Heading */}
+            <div>
+              <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+                Areas of Focus
+              </p>
+
+              <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+                Understanding what you’re experiencing is part of finding a way
+                forward.
+              </h2>
+            </div>
+
+            {/* Focus List */}
+<div className="grid grid-cols-1 gap-x-10 gap-y-0 sm:grid-cols-2">
+  <a href="/focus/anxiety">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">Anxiety</p>
     </div>
+  </a>
+
+  <a href="/focus/panic">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">Panic</p>
+    </div>
+  </a>
+
+  <a href="/focus/trauma">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">Trauma</p>
+    </div>
+  </a>
+
+  <a href="/focus/burnout">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">Burnout</p>
+    </div>
+  </a>
+
+  <a href="/focus/perfectionism">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">Perfectionism</p>
+    </div>
+  </a>
+
+  <a href="/focus/professional-stress">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">
+        Professional Stress
+      </p>
+    </div>
+  </a>
+
+  <a href="/focus/stress-emotional-regulation" className="sm:col-span-2">
+    <div className="border-t border-[#D9DDD5] py-5">
+      <p className="text-lg text-[#26352F]">
+        Stress & Emotional Regulation
+      </p>
+    </div>
+  </a>
+</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Approach */}
+      <section id="approach" className="bg-[#E8EDE6]">
+        <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
+          {/* Image */}
+          <div className="h-[500px] lg:h-[650px]">
+            <img
+              src="/how-we-work.jpg"
+              alt="Calm and grounding therapy space"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="flex items-center px-6 py-20 sm:px-10 lg:px-16 lg:py-28">
+            <div className="max-w-xl">
+              <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+                My Approach
+              </p>
+
+              <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+                Warm, collaborative, and grounded.
+              </h2>
+
+              <div className="mt-7 space-y-5 text-base leading-7 text-[#5F675F]">
+                <p>
+                  I believe therapy works best when you feel respected,
+                  understood, and actively involved in the process.
+                </p>
+
+                <p>
+                  Sessions are structured enough to feel supportive while still
+                  leaving room for reflection and depth.
+                </p>
+
+                <p>
+                  I integrate CBT, EMDR, mindfulness-based practices, and
+                  body-oriented techniques to explore both the emotional and
+                  physiological sides of what you are experiencing.
+                </p>
+              </div>
+
+              <a
+  href="/approach"
+  className="mt-6 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F] transition hover:text-[#526B5B]"
+>
+  Learn More
+</a>
+
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Specialties */}
+<section className="bg-[#FAF9F5] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+  <div className="mx-auto max-w-7xl">
+    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[30%_70%]">
+
+      {/* Left - Heading */}
+      <div>
+        <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+          Specialized Support
+        </p>
+
+        <h2 className="max-w-sm text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+          Our specialties include…
+        </h2>
+      </div>
+
+      {/* Right - 2 x 2 Specialties */}
+      <div className="grid grid-cols-1 gap-x-12 md:grid-cols-2">
+
+        {/* CBT */}
+        <div className="border-t border-[#D9DDD5] py-8">
+          <h3 className="text-2xl font-normal text-[#26352F]">
+            Cognitive Behavioral Therapy
+          </h3>
+
+          <p className="mt-4 text-base leading-7 text-[#5F675F]">
+            Practical, evidence-based support for understanding patterns of
+            thinking and developing healthier ways of responding.
+          </p>
+
+          <Link
+            href="/approach/cbt"
+            className="mt-5 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F]"
+          >
+            Learn More
+          </Link>
+        </div>
+
+        {/* EMDR */}
+        <div className="border-t border-[#D9DDD5] py-8">
+          <h3 className="text-2xl font-normal text-[#26352F]">
+            EMDR
+          </h3>
+
+          <p className="mt-4 text-base leading-7 text-[#5F675F]">
+            A structured approach that can help process distressing
+            experiences while maintaining an emphasis on safety and
+            stabilization.
+          </p>
+
+          <Link
+            href="/approach/emdr"
+            className="mt-5 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F]"
+          >
+            Learn More
+          </Link>
+        </div>
+
+        {/* Mindfulness */}
+        <div className="border-t border-[#D9DDD5] py-8">
+          <h3 className="text-2xl font-normal text-[#26352F]">
+            Mindfulness
+          </h3>
+
+          <p className="mt-4 text-base leading-7 text-[#5F675F]">
+            Practices that can help you slow down, reconnect with yourself,
+            and develop greater awareness of your thoughts, emotions, and
+            body.
+          </p>
+
+          <Link
+            href="/approach/mindfulness"
+            className="mt-5 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F]"
+          >
+            Learn More
+          </Link>
+        </div>
+
+        {/* Body-Oriented Work */}
+        <div className="border-t border-[#D9DDD5] py-8">
+          <h3 className="text-2xl font-normal text-[#26352F]">
+            Body-Oriented Work
+          </h3>
+
+          <p className="mt-4 text-base leading-7 text-[#5F675F]">
+            Exploring the connection between emotional experiences and
+            physical sensations to support greater regulation and awareness.
+          </p>
+
+          <Link
+            href="/approach/body-oriented"
+            className="mt-5 inline-block border-b border-[#526B5B] pb-1 text-sm font-medium text-[#26352F]"
+          >
+            Learn More
+          </Link>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+      {/* Our Office */}
+      <section
+        id="office"
+        className="bg-[#FAF9F5] px-6 py-20 sm:px-10 lg:px-14 lg:py-28"
+      >
+        <div className="mx-auto max-w-7xl">
+          {/* Heading */}
+          <div className="max-w-3xl">
+            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+              Our Office
+            </p>
+
+            <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+              A quiet, welcoming space in Santa Monica.
+            </h2>
+
+            <p className="mt-7 text-base leading-7 text-[#5F675F] sm:text-lg">
+              My Santa Monica office is designed to feel calm, private, and
+              comfortable. With natural light and an uncluttered environment,
+              the space offers a welcoming setting for slowing down and focusing
+              on what matters.
+            </p>
+          </div>
+
+          {/* Office Images */}
+          <div className="mt-14 grid gap-8 md:grid-cols-2">
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src="/office-1.jpeg"
+                alt="Dr. Maya Reynolds therapy office in Santa Monica"
+                className="h-[420px] w-full object-cover"
+              />
+            </div>
+
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src="/office-2.jpeg"
+                alt="Therapy office interior in Santa Monica"
+                className="h-[420px] w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Office Details */}
+          <div className="mt-12 grid gap-8 border-t border-[#D9DDD5] pt-10 md:grid-cols-3">
+            <div>
+              <h3 className="text-xl font-normal text-[#26352F]">
+                Location
+              </h3>
+
+              <p className="mt-3 text-base leading-7 text-[#5F675F]">
+                123th Street 45 W
+                <br />
+                Santa Monica, CA 90401
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-normal text-[#26352F]">
+                In-Person Therapy
+              </h3>
+
+              <p className="mt-3 text-base leading-7 text-[#5F675F]">
+                Private, in-person therapy sessions are available from the
+                Santa Monica office.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-normal text-[#26352F]">
+                Secure Telehealth
+              </h3>
+
+              <p className="mt-3 text-base leading-7 text-[#5F675F]">
+                Secure telehealth sessions are available for clients located
+                across California.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="bg-[#E8EDE6] px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+        <div className="mx-auto max-w-5xl">
+          <div className="max-w-2xl">
+            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+              Frequently Asked Questions
+            </p>
+
+            <h2 className="text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+              A few answers before we begin.
+            </h2>
+          </div>
+
+          <div className="mt-12 divide-y divide-[#C9D1C9] border-t border-[#C9D1C9]">
+            <div className="py-7">
+              <h3 className="text-xl font-normal text-[#26352F]">
+                What issues do you help with?
+              </h3>
+
+              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+                I work with adults experiencing anxiety, panic, trauma,
+                burnout, perfectionism, professional stress, and difficulties
+                with emotional regulation.
+              </p>
+            </div>
+
+            <div className="py-7">
+              <h3 className="text-xl font-normal text-[#26352F]">
+                Do you offer in-person therapy?
+              </h3>
+
+              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+                Yes. In-person therapy is available from my private office in
+                Santa Monica, California.
+              </p>
+            </div>
+
+            <div className="py-7">
+              <h3 className="text-xl font-normal text-[#26352F]">
+                Do you offer online therapy?
+              </h3>
+
+              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+                Yes. Secure telehealth sessions are available for clients
+                located in California.
+              </p>
+            </div>
+
+            <div className="py-7">
+              <h3 className="text-xl font-normal text-[#26352F]">
+                What therapy approaches do you use?
+              </h3>
+
+              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+                My approach integrates cognitive behavioral therapy, EMDR,
+                mindfulness-based practices, and body-oriented techniques.
+              </p>
+            </div>
+
+            <div className="py-7">
+              <h3 className="text-xl font-normal text-[#26352F]">
+                Is trauma therapy paced carefully?
+              </h3>
+
+              <p className="mt-3 max-w-3xl text-base leading-7 text-[#5F675F]">
+                Yes. Trauma work is approached carefully with an emphasis on
+                safety, stabilization, and developing skills for regulation in
+                everyday life.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Appointment CTA */}
+      <section id="contact" className="bg-[#F3F0E8]">
+        <div className="mx-auto grid max-w-7xl items-center lg:grid-cols-2">
+          {/* Content */}
+          <div className="px-6 py-20 sm:px-10 lg:px-14 lg:py-28">
+            <p className="mb-5 text-xs font-medium uppercase tracking-[0.2em] text-[#526B5B]">
+              Take the Next Step
+            </p>
+
+            <h2 className="max-w-xl text-3xl font-normal leading-tight text-[#26352F] sm:text-4xl lg:text-5xl">
+              You don't have to keep carrying everything on your own.
+            </h2>
+
+            <p className="mt-7 max-w-lg text-base leading-7 text-[#5F675F] sm:text-lg">
+              I offer in-person therapy from my Santa Monica office and secure
+              telehealth sessions for clients located in California.
+            </p>
+
+            <a
+              href="/contact"
+              className="mt-8 inline-block bg-[#526B5B] px-7 py-4 text-sm font-medium text-white transition hover:bg-[#405747]"
+            >
+              Schedule a Consultation
+            </a>
+          </div>
+
+          {/* Image */}
+          <div className="h-[450px] lg:h-[550px]">
+            <img
+              src="/appointment.jpg"
+              alt="Welcoming therapy environment"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#26352F] text-white">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 sm:px-10 lg:grid-cols-4 lg:px-14">
+          {/* Brand */}
+          <div>
+            <h2 className="text-xl font-medium">
+              Dr. Maya Reynolds, PsyD
+            </h2>
+
+            <p className="mt-5 max-w-sm text-sm leading-6 text-[#D5DDD6]">
+              Licensed clinical psychologist offering warm, grounded therapy
+              for adults in Santa Monica and across California.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h3 className="text-sm font-medium uppercase tracking-wider">
+              Navigation
+            </h3>
+
+            <ul className="mt-5 space-y-3 text-sm text-[#D5DDD6]">
+              <li>
+                <a href="#" className="hover:text-white">
+                  Home
+                </a>
+              </li>
+
+              <li>
+                <a href="#about" className="hover:text-white">
+                  About
+                </a>
+              </li>
+
+              <li>
+                <a href="#services" className="hover:text-white">
+                  Services
+                </a>
+              </li>
+
+              <li>
+                <a href="#approach" className="hover:text-white">
+                  Approach
+                </a>
+              </li>
+
+              <li>
+                <a href="#office" className="hover:text-white">
+                  Office
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-sm font-medium uppercase tracking-wider">
+              Services
+            </h3>
+
+            <ul className="mt-5 space-y-3 text-sm text-[#D5DDD6]">
+              <li>Anxiety & Panic Therapy</li>
+              <li>Trauma Therapy</li>
+              <li>Burnout & Perfectionism</li>
+              <li>EMDR</li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-sm font-medium uppercase tracking-wider">
+              Contact
+            </h3>
+
+            <div className="mt-5 space-y-3 text-sm leading-6 text-[#D5DDD6]">
+              <p>123th Street 45 W</p>
+              <p>Santa Monica, CA 90401</p>
+              <p>In-Person & Secure Telehealth</p>
+              <p>Serving clients across California</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-[#405047]">
+          <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-6 text-sm text-[#AEB9B0] sm:px-10 md:flex-row md:items-center md:justify-between lg:px-14">
+            <p>
+              © 2026 Dr. Maya Reynolds, PsyD. All rights reserved.
+            </p>
+
+            <div className="mt-8 flex gap-6">
+      <Link
+        href="/privacy-policy"
+        className="text-sm text-white/70 hover:text-white"
+      >
+        Privacy Policy
+      </Link>
+
+      <Link
+        href="/terms"
+        className="text-sm text-white/70 hover:text-white"
+      >
+        Terms
+      </Link>
+    </div>
+          </div>
+        </div>
+      </footer>
+    </main>
   );
 }
